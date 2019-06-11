@@ -1,0 +1,213 @@
+import java.util.Scanner;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class main {
+public static Scanner sc = new Scanner(System.in);
+public static void main(String[] args) {
+    String palabras;
+    Scanner oracion=new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
+     String morse[] = { ".-", "-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..", 
+        "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",".----",
+        "..---","...--","....-",".....","-....","--...","---..","----.","-----"};
+        //Declaramos la variable abc el cual nos ayudara a conocer mas adelante la posición de las letras
+        String abc="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String mensaje="";
+        String conversion="";
+        //Indicamos la posición 
+        int p=0;
+        System.out.println("Opción[1].-Convertir de TEXTO a MORSE: ");
+        System.out.println("Opción[2].-Convertir de MORSE a TEXTO: ");
+        System.out.println("Eliga su opción: ");
+        switch(in.next()){
+            case "1":
+                System.out.println("A .-,  B -...  C -.-.  D -..  E .  F ..-.  G --.  H ....  I ..  J .---  K -.-  L .-..  M --");
+            System.out.println("N -.  O ---  P .--.  Q --.-  R .-.  S ...  T -  U ..-  V ...-  W .--  X -..-  Y -.--  Z --..");
+            System.out.println("1 .----  2 ..---  3 ...--  4 ....-  5 .....  6 -....  7 --...  8 ---..  9 ----  0 -----");
+            System.out.println("Escribir Mensaje:");
+            mensaje=sc.nextLine();
+            
+        //Cálculo de la longitud del mensaje
+            int longitud=mensaje.length();
+         
+            System.out.println("Mensaje en clave Morse");
+        
+        //Método de conversion a Morse
+                for (int i=0; i<longitud; i++)
+                {
+                    p= abc.indexOf(mensaje.charAt(i));
+                        if (p!=-1)
+                        {
+                        conversion=conversion+morse[p]+" "; 
+                        }else{
+                        conversion=conversion+"  ";    
+                        }
+                }
+            System.out.println(conversion);
+                break;
+                
+            case "2":
+                System.out.println("Ingresa la palabra en morse: ");
+        palabras=oracion.nextLine();
+        StringTokenizer tokens=new StringTokenizer(palabras);
+        while(tokens.hasMoreTokens()){
+            System.out.println(tokens.nextToken());         
+        }
+       System.out.println("\n\n");
+        String [ ] palabra = palabras.split("\\ ");
+        int j=0;
+                System.out.println("El simbolo en texto es: ");
+        while(j <= palabra.length-1){
+          
+               if (palabra[j].equals(".-"))
+            {
+                 System.out.print("A");
+
+               } else if (palabra[j].equals("-..."))
+            {
+             System.out.print("B");
+            }else if (palabra[j].equals("-.-."))
+            {
+            System.out.print("C");
+            }
+            else if (palabra[j].equals("-.."))
+            {
+            System.out.print("D");
+            }
+            else if (palabra[j].equals("."))
+            {
+            System.out.print("E");
+            }
+               else if (palabra[j].equals("..-."))
+            {
+            System.out.print("F");
+            }
+               else if (palabra[j].equals("--."))
+            {
+            System.out.print("G");
+            }
+               else if (palabra[j].equals("..."))
+            {
+            System.out.print("H");
+            }
+               else if (palabra[j].equals(".."))
+            {
+            System.out.print("I");
+            }
+               else if (palabra[j].equals(".---"))
+            {
+            System.out.print("J");
+            }
+               else if (palabra[j].equals("-.-"))
+            {
+            System.out.print("K");
+            }
+               else if (palabra[j].equals(".-.."))
+            {
+            System.out.print("L");
+            }
+               else if (palabra[j].equals("--"))
+            {
+            System.out.print("M");
+            }
+               else if (palabra[j].equals("-."))
+            {
+            System.out.print("N");
+            }
+               else if (palabra[j].equals("---"))
+            {
+            System.out.print("O");
+            }
+               else if (palabra[j].equals(".--."))
+            {
+            System.out.print("P");
+            }
+               else if (palabra[j].equals("--.-"))
+            {
+            System.out.print("Q");
+            }
+               else if (palabra[j].equals(".-."))
+            {
+            System.out.print("R");
+            }
+               else if (palabra[j].equals("..."))
+            {
+            System.out.print("S");
+            }
+               else if (palabra[j].equals("-"))
+            {
+            System.out.print("T");
+            }
+               else if (palabra[j].equals("..-"))
+            {
+            System.out.print("U");
+            }
+               else if (palabra[j].equals("...-"))
+            {
+            System.out.print("V");
+            }
+               else if (palabra[j].equals(".--"))
+            {
+            System.out.print("W");
+            }
+               else if (palabra[j].equals("-..-"))
+            {
+            System.out.print("X");
+            }
+               else if (palabra[j].equals("-.--"))
+            {
+            System.out.print("Y");
+            }
+               else if (palabra[j].equals("--.."))
+            {
+            System.out.print("Z");
+            }
+            else if (palabra[j].equals(".----"))
+            {
+            System.out.println("1");    
+            }
+            else if (palabra[j].equals("..---"))
+            {
+            System.out.println("2");    
+            }
+            else if (palabra[j].equals("...--"))
+            {
+            System.out.println("3");    
+            }
+            else if (palabra[j].equals("....-"))
+            {
+            System.out.println("4");    
+            }
+            else if (palabra[j].equals("....."))
+            {
+            System.out.println("5");    
+            }
+            else if (palabra[j].equals("-...."))
+            {
+            System.out.println("6");    
+            }
+            else if (palabra[j].equals("--..."))
+            {
+            System.out.println("7");    
+            }
+            else if (palabra[j].equals("---.."))
+            {
+            System.out.println("8");    
+            }
+            else if (palabra[j].equals("----."))
+            {
+            System.out.println("9");    
+            }
+            else if (palabra[j].equals("-----"))
+            {
+            System.out.println("0");    
+            }
+            j++;
+        }        
+                break;
+                        
+                     
+        }
+}   
+}
