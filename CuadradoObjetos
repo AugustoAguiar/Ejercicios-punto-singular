@@ -1,0 +1,83 @@
+import herencias.Cubo;
+import java.util.Scanner;
+public class main {
+    public static void main(String[] args) {
+    int lado;
+      Cubo cub=new Cubo();
+    
+    boolean sal = false;
+    
+    Scanner in = new Scanner(System.in);
+        
+    do{
+        System.out.println("CALCULOS PARA UN CUBO");
+        System.out.println("OPCIÓN[1].- Calclular ÁREA: ");
+        System.out.println("OPCIÓN[2].- Calcular VOLUMEN: ");
+        System.out.println("OPCIÓN[3].- Calcular PERÍMETRO: ");
+        System.out.println("OPCIÓN[4].- CANCELAR");
+        System.out.println("OPCIÓN[5].- SALIR");
+        System.out.println("Eliga una opción: ");
+        switch(in.next()){
+            case "1":
+                System.out.println("Medida de un lado: ");
+                lado=in.nextInt();
+                cub.lado=lado;
+                cub.MostrarCuadrado();
+                System.out.println("Area de un solo lado del cuadrado: "+cub.area);
+                break;
+            case "2":
+                System.out.println("Medida de un lado: ");
+                lado=in.nextInt();
+                cub.lado=lado;
+                cub.MostrarCuadrado();
+                System.out.println("Volumen del cubo: "+cub.volumen());
+                break;                
+            case "3":
+                System.out.println("Medida de un lado: ");
+                lado=in.nextInt();
+                cub.lado=lado;
+                cub.MostrarCuadrado();
+                System.out.println("Perimetro del cubo: "+cub.perimccubo());
+                break;
+            case "4":
+                
+                break;
+            case "5":
+              System.exit(0);
+            break;
+        }
+        System.out.println("¿Quieres salir del programa?");
+        if(in.next().equals("si")) sal=true;
+        else sal=false;
+    }while(!sal);
+    
+    }
+}
+--------------------------------------------------------------------------------------------------------
+//Clase Cuadrado
+package herencias;
+public class Cuadrado{
+    public double lado;
+    public double area;
+    public double perimetro;
+    
+    public void MostrarCuadrado(){
+        area=Math.pow(lado, 2);
+        perimetro=4*lado;      
+    }
+}
+--------------------------------------------------------------------------------------------------------
+//Herencia de la clase cuadrado a la clase Cubo 
+package herencias;
+public class Cubo extends Cuadrado {
+    
+    
+   public double volumen(){
+       return area*lado;
+   }
+   public double perimccubo(){
+       return perimetro*3;
+   }
+   public void MostrarCubo(){
+    }
+}
