@@ -1,0 +1,82 @@
+import java.util.Scanner;
+public class main {
+  public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int num;
+      do {
+             System.out.print("Introdusca un número (del 1 al 1000):");
+             num = sc.nextInt();
+             
+             if(num<= 0 || num >= 1001){
+          System.out.println("Intervalo incorrecto");
+      }
+             
+      } while (num < 1 || num > 1000);
+      System.out.println("El número "+num+" en Romano es: "+ NumerosRomanos(num));
+      
+}
+  //Función para converit a números Romanos
+  public static String NumerosRomanos(int numero) {
+      int i, unidad, decena, centena, miles;
+      String romano = "";
+
+     //obtenemos cada cifra del número
+      unidad = numero % 10;
+      decena = numero / 10 % 10;
+      centena = numero / 100 % 10;
+      miles = numero / 1000;
+      
+      //Para los millares
+      for (i = 1; i <= miles; i++) {
+             romano = romano + "M";
+      }
+     //Para las centenas
+      if (centena==9) {
+          romano = romano + "CM";
+      } else if (centena>=5) {
+                     romano=romano + "D";
+                     for (i = 6; i <=centena; i++) {
+                            romano = romano + "C";
+                     }
+      } else if (centena==4) {
+                      romano = romano + "CD";
+      } else {
+                  for (i = 1; i <= centena; i++) {
+                         romano = romano + "C";
+                  }
+      }
+
+     //Para las decenas
+      if (decena==9) {
+           romano = romano + "XC";
+      } else if (decena>=5) {
+                      romano = romano + "L";
+                      for (i = 6; i <= decena; i++) {
+                            romano = romano + "X";
+                      }
+      } else if (decena== 4) {
+                      romano = romano + "XL";
+      } else {
+                    for (i = 1; i <= decena; i++) {
+                           romano = romano + "X";
+                    }
+      }
+
+     //Para la unidad
+      if (unidad==9) {
+           romano = romano + "IX";
+      } else if (unidad>= 5) {
+                      romano = romano + "V";
+                      for (i = 6; i <= unidad; i++) {
+                             romano = romano + "I";
+                      }
+      } else if (unidad== 4) {
+                      romano = romano + "IV";
+      } else {
+                  for (i = 1; i <= unidad; i++) {
+                         romano = romano + "I";
+                  }
+      }
+      return romano;
+  }
+}
